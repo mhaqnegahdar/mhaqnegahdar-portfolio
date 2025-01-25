@@ -52,14 +52,14 @@ export default function Project({
           <div className="flex gap-2 sm:mt-auto">
             {demoLink && (
               <Link href={demoLink}>
-                <button className="rounded-lg bg-black/10 px-4 py-2 text-sm font-semibold text-white transition hover:bg-black/20 dark:bg-white/10 dark:hover:bg-white/20">
+                <button className="rounded-lg bg-black/50 px-4 py-2 text-sm font-semibold text-white transition hover:bg-black/20 dark:bg-white/10 dark:hover:bg-white/20">
                   Demo
                 </button>
               </Link>
             )}
             {codeLink && (
               <Link href={codeLink}>
-                <button className="rounded-lg bg-black/10 px-4 py-2 text-sm font-semibold text-white transition hover:bg-black/20 dark:bg-white/10 dark:hover:bg-white/20">
+                <button className="rounded-lg bg-black/50 px-4 py-2 text-sm font-semibold text-white transition hover:bg-black/20 dark:bg-white/10 dark:hover:bg-white/20">
                   Code
                 </button>
               </Link>
