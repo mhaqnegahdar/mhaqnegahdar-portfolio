@@ -30,13 +30,13 @@ export default function Skills() {
       className="mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40"
     >
       <SectionHeading>My skills</SectionHeading>
-      <ul className="flex items-center justify-center flex-col gap-5 text-lg text-gray-800 sm:flex-row sm:flex-wrap sm:gap-2">
+      <ul className="flex flex-col items-center justify-center gap-5 text-lg text-gray-800 sm:flex-row sm:flex-wrap sm:gap-2">
         {skillsData.map((skillGroup, index) => (
-          <React.Fragment key={skillGroup.name}>
+          <li key={skillGroup.name}>
             <div className="mt-12 w-full text-sm font-semibold tracking-wide text-gray-700 dark:text-gray-300">
               {skillGroup.name}
             </div>
-            <ul className="mt-2 flex justify-center flex-wrap  gap-2">
+            <ul className="mt-2 flex flex-wrap justify-center gap-2">
               {skillGroup.skills.map((skill, skillIndex) => (
                 <motion.li
                   className="borderBlack rounded-xl bg-white px-5 py-3 dark:bg-white/10 dark:text-white/80"
@@ -53,7 +53,7 @@ export default function Skills() {
                 </motion.li>
               ))}
             </ul>
-          </React.Fragment>
+          </li>
         ))}
       </ul>
     </section>
