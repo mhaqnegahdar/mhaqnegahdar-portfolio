@@ -2,7 +2,8 @@
 
 import { useRef } from "react";
 import { projectsData } from "@/lib/data";
-import Image from "@/components/ui/Image";
+// import Image from "@/components/ui/Image";
+import NextImage from "next/image";
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
@@ -68,11 +69,13 @@ export default function Project({
           </div>
         </div>
 
-        <Image
-          path={imageUrl}
+        <NextImage
+          src={imageUrl}
           alt="Project I worked on"
-          w={800}
-          h={450}
+          width={400}
+          height={225}
+          quality={95}
+          loading="lazy"
           className="absolute -right-40 top-8 hidden w-[28.25rem] rounded-t-lg shadow-2xl transition group-even:-left-40 group-even:right-[initial] group-hover:-translate-x-3 group-hover:translate-y-3 group-hover:-rotate-2 group-hover:scale-[1.04] sm:block"
         />
       </section>
