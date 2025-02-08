@@ -10,7 +10,8 @@ import { ArrowRight, DownloadIcon, Github, Linkedin } from "lucide-react";
 
 // store
 import { useSectionsStore } from "@/store/sections-store";
-import Image from "@/components/ui/Image";
+// import Image from "@/components/ui/Image";
+import NextImage from "next/image";
 
 export default function Hero() {
   const { ref } = useSectionInView("Home", 0.5);
@@ -32,7 +33,16 @@ export default function Hero() {
               duration: 0.2,
             }}
           >
-            <Image
+            <NextImage
+              src="/images/profile.webp"
+              alt="Mohamad Haqnegahdar"
+              width={192}
+              height={192}
+              quality={95}
+              priority={true}
+              className="h-24 w-24 rounded-3xl border-[0.35rem] border-white object-cover shadow-xl"
+            />
+            {/* <Image
               path="/images/profile.webp"
               alt="Mohamad Haqnegahdar"
               w={192}
@@ -40,7 +50,7 @@ export default function Hero() {
           
               
               className="h-24 w-24 rounded-3xl border-[0.35rem] border-white object-cover shadow-xl"
-            />
+            /> */}
           </motion.div>
 
           {/* <motion.span
