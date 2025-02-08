@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 
 export default function Footer() {
   return (
-    <footer className="mb-10 flex-nowrap divide-x-2 px-4 text-center text-gray-500 dark:text-white/90 ">
+    <footer className="mb-10 flex-nowrap divide-x-2 px-4 text-center text-gray-500 dark:text-white/90">
       <small className="px-4">
         © {new Date().getFullYear()} Mohamad Haqnegahdar
       </small>
@@ -19,6 +19,8 @@ export default function Footer() {
           buttonVariants({ variant: "link" }),
           "h-4 rounded-none text-gray-500 dark:text-white/90",
         )}
+        title="Github"
+        aria-label="Github link"
       >
         <Github />
       </Link>
@@ -28,6 +30,8 @@ export default function Footer() {
           buttonVariants({ variant: "link" }),
           "h-4 rounded-none text-gray-500 dark:text-white/90",
         )}
+        title="Linkedin"
+        aria-label="Linkedin social media link"
       >
         <Linkedin />
       </Link>

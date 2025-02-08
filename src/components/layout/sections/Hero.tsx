@@ -3,7 +3,6 @@
 // Hooks / Packages
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
 
@@ -11,6 +10,7 @@ import { ArrowRight, DownloadIcon, Github, Linkedin } from "lucide-react";
 
 // store
 import { useSectionsStore } from "@/store/sections-store";
+import Image from "@/components/ui/Image";
 
 export default function Hero() {
   const { ref } = useSectionInView("Home", 0.5);
@@ -33,12 +33,12 @@ export default function Hero() {
             }}
           >
             <Image
-              src="/images/profile.webp"
+              path="/images/profile.webp"
               alt="Mohamad Haqnegahdar"
-              width="192"
-              height="192"
-              quality="95"
-              priority={true}
+              w={192}
+              h={192}
+          
+              
               className="h-24 w-24 rounded-3xl border-[0.35rem] border-white object-cover shadow-xl"
             />
           </motion.div>

@@ -4,7 +4,7 @@ import React from "react";
 import SectionHeading from "../SectionHeading";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
-import { sendEmail } from "@/actions/sendEmail";
+import { sendToTelegram } from "@/actions/sendToTelegram";
 import SubmitBtn from "./SubmitButton";
 import toast from "react-hot-toast";
 
@@ -42,7 +42,7 @@ export default function Contact() {
       <form
         className="mt-10 flex flex-col dark:text-black"
         action={async (formData) => {
-          const { error } = await sendEmail(formData);
+          const { error } = await sendToTelegram(formData);
           if (error) {
             toast.error(error);
             return;
