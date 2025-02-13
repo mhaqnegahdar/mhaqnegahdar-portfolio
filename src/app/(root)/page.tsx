@@ -8,7 +8,7 @@ import Skills from "@/components/layout/sections/Skills";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <main className="flex min-h-screen flex-col items-center justify-center">
         <Hero />
         <SectionDivider />
@@ -18,6 +18,6 @@ export default function Home() {
         <Experience />
         <Contact />
       </main>
-    </div>
+    </>
   );
 }

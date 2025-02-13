@@ -9,7 +9,7 @@ import { useSectionInView } from "@/lib/hooks";
 import { ArrowRight, DownloadIcon, Github, Linkedin } from "lucide-react";
 
 // store
-import { useSectionsStore } from "@/store/sections-store";
+import { useSectionsStore } from "@/store/sectionsModalStore";
 // import Image from "@/components/ui/Image";
 import NextImage from "next/image";
 

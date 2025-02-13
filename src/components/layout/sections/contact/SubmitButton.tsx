@@ -1,3 +1,4 @@
+'use client'
 import { CheckCheckIcon } from "lucide-react";
 import React from "react";
 import { useFormStatus } from "react-dom";

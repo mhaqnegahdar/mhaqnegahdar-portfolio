@@ -4,27 +4,27 @@ import { Brackets, Briefcase, LucideGraduationCap } from "lucide-react";
 export const links = [
   {
     name: "Home",
-    hash: "#home",
+    hash: "/#home",
   },
   {
     name: "About",
-    hash: "#about",
+    hash: "/#about",
   },
   {
     name: "Projects",
-    hash: "#projects",
+    hash: "/#projects",
   },
   {
     name: "Skills",
-    hash: "#skills",
+    hash: "/#skills",
   },
   {
     name: "Experience",
-    hash: "#experience",
+    hash: "/#experience",
   },
   {
     name: "Contact",
-    hash: "#contact",
+    hash: "/#contact",
   },
 ] as const;
 
@@ -49,7 +49,7 @@ export const experiencesData = [
     title: "Hello Digi - Night Support (Full-Stack)",
     location: "Canada - remote",
     description:
-      "I was responsible for taking care of customers requests on their website and our CMS. I also worked on the development of new features and bug fixes.",
+      "I was responsible for taking care of customers requests on their website and our CMS. I also worked on the development of new features and bug fixes. ✅ Delivered multiple solutions to improve development speed & customer satisfaction  ✅ Known for fast & precise development with clean coding practices",
     icon: React.createElement(Brackets),
     date: "2023 - 2024",
   },
@@ -151,3 +151,56 @@ export const skillsData = [
     skills: ["Redis", "Docker", "RabitMQ", "JWT", "Docker", "Jest"],
   },
 ] as const;
+
+export const featuredPostsData = [
+  {
+    title: "Understanding React Hooks",
+    author: "Mohamad Haqnegahdar",
+    authorImage: "/images/profile.webp",
+    description:
+      "A comprehensive guide to understanding and using React Hooks in your applications.",
+    date: "2023-10-01",
+    tags: ["React", "JavaScript", "Web Development"],
+    imageUrl: "/images/projects/Store.webp",
+    readTime: "5 min read",
+    link: "https://example.com/understanding-react-hooks",
+  },
+  {
+    title: "Mastering TypeScript",
+    author: "Mohamad Haqnegahdar",
+    authorImage: "/images/profile.webp",
+    description:
+      "Learn how to master TypeScript and improve your JavaScript applications.",
+    date: "2023-09-15",
+    tags: ["TypeScript", "JavaScript", "Programming"],
+    imageUrl: "/images/projects/Store.webp",
+    readTime: "8 min read",
+    link: "https://example.com/mastering-typescript",
+  },
+  {
+    title: "Mastering TypeScript",
+    author: "Mohamad Haqnegahdar",
+    authorImage: "/images/profile.webp",
+    description:
+      "Learn how to master TypeScript and improve your JavaScript applications.",
+    date: "2023-09-18",
+    tags: ["TypeScript", "JavaScript", "Programming"],
+    imageUrl: "/images/projects/Store.webp",
+    readTime: "8 min read",
+    link: "https://example.com/mastering-typescript",
+  },
+  {
+    title: "Getting Started with Next.js",
+    author: "Mohamad Haqnegahdar",
+    authorImage: "/images/profile.webp",
+    description:
+      "An introduction to Next.js and how to get started with this powerful React framework.",
+    date: "2023-09-10",
+    tags: ["Next.js", "React", "Web Development"],
+    imageUrl: "/images/projects/Store.webp",
+    readTime: "6 min read",
+    link: "https://example.com/getting-started-with-nextjs",
+  },
+];
+
+export type FeaturedPostsData = typeof featuredPostsData;

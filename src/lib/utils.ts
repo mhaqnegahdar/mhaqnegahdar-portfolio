@@ -1,13 +1,14 @@
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { clsx, type ClassValue } from "clsx";
+import toast from "react-hot-toast";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
 
 export const validateString = (
   value: unknown,
-  maxLength: number
+  maxLength: number,
 ): value is string => {
   if (!value || typeof value !== "string" || value.length > maxLength) {
     return false;
@@ -30,4 +31,9 @@ export const getErrorMessage = (error: unknown): string => {
   }
 
   return message;
+};
+
+export const onCopy = (copyText: string, copyName: string) => {
+  navigator.clipboard.writeText(copyText);
+  toast.success(`${copyName} copied to the clipboard.`);
 };
