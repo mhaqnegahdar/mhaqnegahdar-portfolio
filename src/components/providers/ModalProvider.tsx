@@ -20,7 +20,6 @@ const ModalProvider = () => {
 
   return (
     <>
-      {/* <LoginModal /> */}
       <AlertModal />
     </>
   );

@@ -1,6 +1,6 @@
 import React from "react";
-import Pagination from "@/app/(blog)/(routes)/articles/components/posts/Pagination";
-import PostCard from "@/app/(blog)/(routes)/articles/components/posts/card/PostCard";
+import Pagination from "@/app/(blog)/blog/components/posts/Pagination";
+import PostCard from "@/app/(blog)/blog/components/posts/card/PostCard";
 
 export default function PostList() {
   return (

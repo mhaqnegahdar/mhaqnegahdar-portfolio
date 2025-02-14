@@ -1,5 +1,5 @@
 import React from "react";
-import ActionButton from "@/app/(blog)/(routes)/articles/components/posts/card/ActionButton";
+import ActionButton from "@/app/(blog)/blog/components/posts/card/ActionButton";
 
 export default function ActionButtonContainer() {
   return (

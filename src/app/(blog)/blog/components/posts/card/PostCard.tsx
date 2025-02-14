@@ -13,7 +13,7 @@ export default function PostCard() {
   return (
     <article className="group/item relative flex flex-col gap-2 overflow-hidden transition-all duration-150 hover:scale-105">
       <header className="relative">
-        <Link href="/articles/nextjs" className="overflow-hidden rounded-xl">
+        <Link href="/blog/nextjs" className="overflow-hidden rounded-xl">
           <Image
             path="/images/projects/netflix-clone.webp"
             alt="Mohamad Haqnegahdar"
@@ -22,7 +22,7 @@ export default function PostCard() {
             className="aspect-video w-full rounded-xl object-cover"
           />
         </Link>
-        <span className="absolute left-2 top-2 rounded-sm bg-primary px-1 py-[2px] text-xs  uppercase tracking-tighter text-primary-foreground duration-150 hover:scale-105">
+        <span className="absolute left-2 top-2 rounded-sm bg-primary px-1 py-[2px] text-xs uppercase tracking-tighter text-primary-foreground duration-150 hover:scale-105">
           <Link className="" href="/blog?category=nextjs">
             Nextjs
           </Link>
@@ -30,7 +30,7 @@ export default function PostCard() {
       </header>
       <main className="flex flex-col gap-2">
         <h2 className="text-lg font-semibold">
-          <Link href="/articles/title">Title of the post</Link>
+          <Link href="/blog/title">Title of the post</Link>
         </h2>
         <p className="text-sm text-gray-500">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quae

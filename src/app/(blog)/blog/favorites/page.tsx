@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 import React from "react";
-import BlogHeading from "@/app/(blog)/(routes)/articles/components/BlogHeading";
-import SearchBar from "@/app/(blog)/(routes)/articles/components/search/SearchBar";
-import PostList from "@/app/(blog)/(routes)/articles/components/posts/PostList";
+import BlogHeading from "@/app/(blog)/blog/components/BlogHeading";
+import SearchBar from "@/app/(blog)/blog/components/search/SearchBar";
+import PostList from "@/app/(blog)/blog/components/posts/PostList";
 import { Heart } from "lucide-react";
 
 export const metadata: Metadata = {

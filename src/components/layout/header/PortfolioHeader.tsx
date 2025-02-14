@@ -72,7 +72,7 @@ export default function PortfolioHeader() {
       <div className="fixed bottom-4 left-4 flex py-2">
         <Link
           className={cn(buttonVariants({ variant: "outline" }), "rounded-full")}
-          href={"/articles"}
+          href={"/blog"}
         >
           Go to Blog <ArrowUpRight size={18} className="ml-2" />
         </Link>

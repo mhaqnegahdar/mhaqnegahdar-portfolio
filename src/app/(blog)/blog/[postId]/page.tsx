@@ -3,7 +3,7 @@ import { Calendar, ChevronLeft, ChevronRight, Hourglass } from "lucide-react";
 import Link from "next/link";
 import React, { Suspense } from "react";
 
-import ActionButtonContainer from "@/app/(blog)/(routes)/articles/[postId]/components/ActionButtonContainer";
+import ActionButtonContainer from "@/app/(blog)/blog/[postId]/components/ActionButtonContainer";
 import CommentsSection from "./components/CommentsSection";
 
 export default function page() {

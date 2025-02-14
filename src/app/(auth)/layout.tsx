@@ -1,10 +1,13 @@
-// Types
-import { ContainerProps } from "@/types/props";
+import AuthHeader from "@/components/layout/header/AuthHeader";
+import React from "react";
 
-export default function AuthLayout({ children }: ContainerProps) {
+export default function layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex items-center justify-center w-full h-screen">
-      {children}
-    </div>
+    <>
+      <AuthHeader />
+      <main className="flex flex-col items-center justify-center pb-20">
+        {children}
+      </main>
+    </>
   );
 }
