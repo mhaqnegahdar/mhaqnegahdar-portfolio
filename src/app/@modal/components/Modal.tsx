@@ -1,4 +1,8 @@
+
+// Components
 import { Button } from "@/components/ui/Button";
+
+// Icons
 import { X } from "lucide-react";
 
 export default function Modal({ children }: { children: React.ReactNode }) {
@@ -10,6 +14,7 @@ export default function Modal({ children }: { children: React.ReactNode }) {
       history.back();
     }
   };
+
   return (
     <div
       className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/50 backdrop-blur-sm"

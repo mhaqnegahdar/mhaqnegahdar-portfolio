@@ -1,3 +1,6 @@
+// Hooks / Packages
+import Link from "next/link";
+
 // Components
 import Heading from "@/app/admin/components/AdminHeading";
 import { buttonVariants } from "@/components/ui/Button";
@@ -8,9 +11,12 @@ import { Separator } from "@/components/ui/Separator";
 
 // Icons
 import { Plus } from "lucide-react";
-import { Columns, data } from "./components/Columns";
-import Link from "next/link";
+
+// Utils
 import { cn } from "@/lib/utils";
+
+// Table
+import { Columns, data } from "./components/Columns";
 
 const AllArticlesPage = () => {
   return (

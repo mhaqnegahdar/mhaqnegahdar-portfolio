@@ -1,15 +1,18 @@
 "use client";
 
-import NextImage from "next/image";
-
-import SubmitBtn from "@/components/layout/sections/contact/SubmitButton";
-import React, { useState } from "react";
-import { cn } from "@/lib/utils";
-import { Separator } from "@/components/ui/Separator";
+// Hooks / Packages
 import Link from "next/link";
+import React, { useState } from "react";
 import { useUser } from "@clerk/nextjs";
+
+// Utils
+import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/Button";
 
+// Components
+import SubmitBtn from "@/components/layout/sections/contact/SubmitButton";
+import NextImage from "next/image";
+import { Separator } from "@/components/ui/Separator";
 export default function CommentsSection() {
   const { user } = useUser();
 

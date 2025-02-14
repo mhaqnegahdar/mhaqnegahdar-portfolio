@@ -1,3 +1,4 @@
+// Section Components
 import About from "@/components/layout/sections/About";
 import Contact from "@/components/layout/sections/contact/Contact";
 import Experience from "@/components/layout/sections/Experience";

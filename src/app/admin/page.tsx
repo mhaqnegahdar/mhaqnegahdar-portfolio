@@ -1,8 +1,14 @@
-import React from "react";
-import Heading from "./components/AdminHeading";
+// Hooks / Packages
 import Link from "next/link";
-import { Separator } from "@/components/ui/Separator";
+
+// Utils
 import { cn } from "@/lib/utils";
+
+//Components
+import Heading from "./components/AdminHeading";
+import { Separator } from "@/components/ui/Separator";
+
+// Icons
 import { ChevronRight, FileEditIcon, Users2Icon } from "lucide-react";
 
 export default function page() {

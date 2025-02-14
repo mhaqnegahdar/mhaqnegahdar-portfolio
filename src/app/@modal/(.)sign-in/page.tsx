@@ -1,7 +1,8 @@
 "use client";
-import { SignIn } from "@clerk/nextjs";
 
-import Modal from "../components/Modal";
+// Components
+import { SignIn } from "@clerk/nextjs";
+import Modal from "@/app/@modal/components/Modal";
 
 export default function ModalSignIn() {
   return (

@@ -1,4 +1,4 @@
-import React from "react";
+// Components
 import Pagination from "@/app/(blog)/blog/components/posts/Pagination";
 import PostCard from "@/app/(blog)/blog/components/posts/card/PostCard";
 

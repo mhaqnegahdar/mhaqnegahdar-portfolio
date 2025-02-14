@@ -1,9 +1,10 @@
+// Packages / Hooks
 import type { Metadata } from "next";
 
-import React from "react";
-import BlogHeading from "./components/BlogHeading";
-import SearchBar from "./components/search/SearchBar";
-import PostList from "./components/posts/PostList";
+// Components
+import BlogHeading from "@/app/(blog)/blog/components/BlogHeading";
+import SearchBar from "@/app/(blog)/blog/components/search/SearchBar";
+import PostList from "@/app/(blog)/blog/components/posts/PostList";
 
 export const metadata: Metadata = {
   title: "Blog | Mohamad Haqnegahdar",

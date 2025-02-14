@@ -1,5 +1,5 @@
+// Hooks / Packages
 import Link from "next/link";
-import React from "react";
 
 interface BlogHeadingProps {
   title: string;

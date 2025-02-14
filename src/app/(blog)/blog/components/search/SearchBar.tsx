@@ -1,5 +1,5 @@
+// Icon
 import { SearchIcon } from "lucide-react";
-import React from "react";
 
 /**
  * SearchBar component

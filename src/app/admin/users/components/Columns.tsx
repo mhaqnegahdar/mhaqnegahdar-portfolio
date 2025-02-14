@@ -40,7 +40,6 @@ export const Columns: ColumnDef<ArticleColumn>[] = [
     accessorKey: "categories",
     header: "Categories",
   },
-
   {
     accessorKey: "likes",
     header: "Likes",
@@ -65,7 +64,6 @@ export const Columns: ColumnDef<ArticleColumn>[] = [
       );
     },
   },
-
   {
     accessorKey: "isFeatured",
     header: "",
