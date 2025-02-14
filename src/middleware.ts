@@ -1,6 +1,38 @@
-import { clerkMiddleware } from "@clerk/nextjs/server";
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { NextResponse } from "next/server";
 
-export default clerkMiddleware();
+const isAdminRoute = createRouteMatcher(["/admin(.*)"]);
+
+const isProtectedRoute = createRouteMatcher([
+  "/admin(.*)",
+  "/blog/bookmarks",
+  "/blog/favorites",
+]);
+
+const isAuthRoute = createRouteMatcher(["/sign-in(.*)", "/sign-up(.*)"]);
+
+export default clerkMiddleware(async (auth, req) => {
+  // Protected routes
+  if (isAuthRoute(req) && (await auth()).userId) {
+    const url = new URL("/", req.url);
+    return NextResponse.redirect(url);
+  }
+
+  // Protected routes
+  if (isProtectedRoute(req) && !(await auth()).userId) {
+    const url = new URL("/", req.url);
+    return NextResponse.redirect(url);
+  }
+
+  // Protect all routes starting with `/admin`
+  if (
+    isAdminRoute(req) &&
+    (await auth()).sessionClaims?.metadata?.role !== "admin"
+  ) {
+    const url = new URL("/", req.url);
+    return NextResponse.redirect(url);
+  }
+});
 
 export const config = {
   matcher: [

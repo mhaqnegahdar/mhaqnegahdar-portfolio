@@ -3,13 +3,14 @@
 import React, { useTransition } from "react";
 import { cn } from "@/lib/utils";
 import { Bookmark, Heart } from "lucide-react";
+import { useUser } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 
 interface ActionButtonProps {
   type: "like" | "save";
   className?: string;
   label?: string;
   initialState: boolean;
-  userId: string | undefined;
 }
 
 export default function ActionButton({
@@ -17,15 +18,15 @@ export default function ActionButton({
   className,
   label,
   initialState,
-  userId,
 }: ActionButtonProps) {
   const [isActive, setIsActive] = React.useState(initialState);
 
   //   const [isPending, startTransition] = useTransition();
 
+  const { user } = useUser();
   async function handleClick() {
-    if (!userId) {
-      console.log("You need to login");
+    if (!user) {
+      redirect("/sign-in");
       return;
     }
     setIsActive((prev) => !prev);

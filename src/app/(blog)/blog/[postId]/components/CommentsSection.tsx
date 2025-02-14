@@ -6,8 +6,13 @@ import SubmitBtn from "@/components/layout/sections/contact/SubmitButton";
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/Separator";
+import Link from "next/link";
+import { useUser } from "@clerk/nextjs";
+import { buttonVariants } from "@/components/ui/Button";
 
 export default function CommentsSection() {
+  const { user } = useUser();
+
   const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
     <section id="comments">
@@ -58,20 +63,31 @@ export default function CommentsSection() {
             </p>
           </main>
         </article>
-        <form
-          className="mt-10 flex flex-col dark:text-black"
-          action={`/api/blog/'/comments`}
-          method="post"
-        >
-          <textarea
-            className="borderBlack my-3 h-52 rounded-lg p-4 transition-all dark:bg-white dark:bg-opacity-80 dark:outline-none dark:focus:bg-opacity-100"
-            name="comment"
-            placeholder="Write Your Comment"
-            required
-            maxLength={5000}
-          />
-          <SubmitBtn />
-        </form>
+
+        {/* If Loged in */}
+        {user ? (
+          <form
+            className="mt-10 flex flex-col dark:text-black"
+            action={`/api/blog/'/comments`}
+            method="post"
+          >
+            <textarea
+              className="borderBlack my-3 h-52 rounded-lg p-4 transition-all dark:bg-white dark:bg-opacity-80 dark:outline-none dark:focus:bg-opacity-100"
+              name="comment"
+              placeholder="Write Your Comment"
+              required
+              maxLength={5000}
+            />
+            <SubmitBtn />
+          </form>
+        ) : (
+          <Link
+            className={cn(buttonVariants({ variant: "outline" }))}
+            href={"/sign-in"}
+          >
+            Write Your Comment
+          </Link>
+        )}
       </div>
     </section>
   );

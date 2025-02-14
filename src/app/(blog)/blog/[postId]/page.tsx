@@ -1,12 +1,16 @@
+// Hooks / Packages
 import Image from "@/components/ui/Image";
-import { Calendar, ChevronLeft, ChevronRight, Hourglass } from "lucide-react";
-import Link from "next/link";
 import React, { Suspense } from "react";
+import Link from "next/link";
 
+// Icons
+import { Calendar, ChevronLeft, ChevronRight, Hourglass } from "lucide-react";
+
+// Components
 import ActionButtonContainer from "@/app/(blog)/blog/[postId]/components/ActionButtonContainer";
 import CommentsSection from "./components/CommentsSection";
 
-export default function page() {
+export default async function page() {
   return (
     <main className="mx-auto max-w-5xl">
       <div className="relative mx-auto mb-4 w-full md:mb-0">

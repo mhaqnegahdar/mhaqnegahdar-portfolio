@@ -5,6 +5,7 @@ import { useClerk } from "@clerk/nextjs";
 
 // Components
 import { Button } from "@/components/ui/Button";
+import { LogOut } from "lucide-react";
 
 export default function LogoutButton() {
   const { signOut } = useClerk();
@@ -17,11 +18,13 @@ export default function LogoutButton() {
 
   return (
     <Button
-      className={"h-12 w-full justify-start rounded-none border-none"}
+      aria-label="Sign out"
+      title="Sign out"
+      className={"w-full rounded-none flex justify-start"}
       onClick={handleSignOut}
-      variant={"outline"}
+      variant={"ghost"}
     >
-      Log Out
+      <LogOut size={25} />
     </Button>
   );
 }

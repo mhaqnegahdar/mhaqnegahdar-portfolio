@@ -42,13 +42,11 @@ export default function PostCard() {
           <ActionButton
             type="like"
             initialState={false}
-            userId={undefined}
             className="flex h-8 w-8 items-center justify-center text-gray-600 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 md:rounded-full md:p-0"
           />
           <ActionButton
             type="save"
             initialState={false}
-            userId={"undefined"}
             className="flex h-8 w-8 items-center justify-center text-gray-600 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 md:rounded-full md:p-0"
           />
         </div>

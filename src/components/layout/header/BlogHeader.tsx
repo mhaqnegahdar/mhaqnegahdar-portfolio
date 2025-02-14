@@ -21,6 +21,7 @@ import {
 import { SignedIn, SignedOut, useUser } from "@clerk/nextjs";
 import BlogHeaderBackButton from "./BlogHeaderBackButton";
 import LogoutButton from "./LogoutButton";
+import AdminButtons from "./AdminButtons";
 
 export default function BlogHeader() {
   const { user } = useUser();
@@ -48,8 +49,9 @@ export default function BlogHeader() {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
+                {/* Navigation BUtton */}
                 <NavigationMenuSimpleTrigger>
-                  {/* <UserButton /> */}
+                  {/* User Info */}
                   <div
                     className={cn(
                       buttonVariants({ variant: "outline" }),
@@ -57,16 +59,18 @@ export default function BlogHeader() {
                     )}
                   >
                     <NextImage
-                      src="/images/profile.webp"
+                      src={`${user?.imageUrl}`}
                       width={150}
                       height={150}
                       alt="Avatar"
                       className="size-8 rounded-full"
                     />
-                    Mohamad Haqnegahdar
+                    {user?.fullName}
                   </div>
                 </NavigationMenuSimpleTrigger>
+                {/* Navigation */}
                 <NavigationMenuContent className="min-w-[200px] divide-y-2 overflow-hidden p-0">
+                  {/* Blog Buttons */}
                   <Link
                     href={`/blog/favorites`}
                     className={cn(
@@ -88,43 +92,16 @@ export default function BlogHeader() {
                     Bookmarks
                   </Link>
                   <Separator />
-                  {isAdmin ? (
-                    <>
-                      <Link
-                        href={`/admin`}
-                        className={cn(
-                          buttonVariants({ variant: "outline" }),
-                          "h-12 w-full justify-start rounded-none border-none",
-                        )}
-                      >
-                        Dashboard
-                      </Link>
-                      <Separator />
-                      <Link
-                        href={`/admin/posts`}
-                        className={cn(
-                          buttonVariants({ variant: "outline" }),
-                          "h-12 w-full justify-start rounded-none border-none",
-                        )}
-                      >
-                        Manage Posts
-                      </Link>
-                      <Separator />
-
-                      <Link
-                        href={`/admin/users`}
-                        className={cn(
-                          buttonVariants({ variant: "outline" }),
-                          "h-12 w-full justify-start rounded-none border-none",
-                        )}
-                      >
-                        Manage Users
-                      </Link>
-                      <Separator />
-                    </>
-                  ) : null}
-
-                  <LogoutButton />
+                  <div className="flex w-full ">
+                    {/* Admin Buttons */}
+                    {isAdmin ? (
+                      <>
+                        <AdminButtons />
+                      </>
+                    ) : null}
+                    {/* Logout Button */}
+                    <LogoutButton />
+                  </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
             </NavigationMenuList>
