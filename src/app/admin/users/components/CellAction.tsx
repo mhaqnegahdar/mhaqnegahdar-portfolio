@@ -1,9 +1,3 @@
-"use client";
-// Hooks / Packages
-import { useMemo } from "react";
-import { useRouter } from "next/navigation";
-import { useAlertModalStore } from "@/store/alertModalStore";
-
 // Components
 import { Button } from "@/components/ui/Button";
 import {
@@ -15,33 +9,19 @@ import {
 } from "@/components/ui/DropdownMenu";
 
 // Icons
-import { Edit, MoreHorizontal, Trash } from "lucide-react";
+import { MoreHorizontal } from "lucide-react";
 
 // Types
-import { ArticleColumn } from "./Columns";
+import { User } from "@clerk/nextjs/server";
+
+// Actions
+import { removeRole, setRole } from "@/app/admin/users/actions";
+
 interface CellActionProps {
-  data: ArticleColumn;
+  data: User;
 }
 
 const CellAction = ({ data }: CellActionProps) => {
-  const router = useRouter();
-  // const params = useParams();
-
-  const { onOpen } = useAlertModalStore();
-
-  // States
-  const deletePayload = useMemo(() => {
-    return {
-      title: "Are you sure you want to delete this article?",
-      description: "This action cannot be undone.",
-      action: "delete",
-      api: `/api/userid/posts/${data.id}`,
-      successMessage: "Product deleted.",
-      failMessage: "Something went wrong while removing the article",
-      afterRoute: `/userid/products`,
-    };
-  }, [data.id]);
-
   return (
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
@@ -52,19 +32,40 @@ const CellAction = ({ data }: CellActionProps) => {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuLabel>Actions</DropdownMenuLabel>
+        <div className="flex flex-col gap-2">
+          <DropdownMenuItem>
+            <form action={setRole} className="inline">
+              <input type="hidden" value={data.id} name="id" />
+              <input type="hidden" value="admin" name="role" />
+              <button type="submit" className="cursor-pointer">
+                Make Admin
+              </button>
+            </form>
+          </DropdownMenuItem>
 
-        <DropdownMenuItem
-          className="cursor-pointer"
-          onClick={() => router.push(`/userid/posts/${data.id}`)}
-        >
-          <Edit className="mr-2 h-4 w-4" /> Update
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          className="cursor-pointer"
-          onClick={() => onOpen(deletePayload)}
-        >
-          <Trash className="mr-2 h-4 w-4" /> Delete
-        </DropdownMenuItem>
+          <DropdownMenuItem>
+            <form action={setRole} className="inline">
+              <input type="hidden" value={data.id} name="id" />
+              <input type="hidden" value="moderator" name="role" />
+              <button type="submit" className="cursor-pointer">
+                Make Moderator
+              </button>
+            </form>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem>
+            <form action={removeRole} className="inline">
+              <input type="hidden" value={data.id} name="id" />
+              <button
+                type="submit"
+                className="cursor-pointer text-red-400"
+                // onClick={() => onOpen(deletePayload)}
+              >
+                Remove Role
+              </button>
+            </form>
+          </DropdownMenuItem>
+        </div>
       </DropdownMenuContent>
     </DropdownMenu>
   );

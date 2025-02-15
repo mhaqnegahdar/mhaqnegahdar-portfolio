@@ -4,9 +4,13 @@ import { DataTable } from "@/components/ui/DataTable";
 import { Separator } from "@/components/ui/Separator";
 
 // Icons
-import { Columns, data } from "./components/Columns";
+import { Columns } from "./components/Columns";
+import { clerkClient } from "@clerk/nextjs/server";
 
-const AllUsersPage = () => {
+export default async function AllUsersPage() {
+  const client = await clerkClient();
+
+  const users = (await client.users.getUserList({})).data;
   return (
     <>
       <section className="flex w-full items-center justify-between">
@@ -17,9 +21,7 @@ const AllUsersPage = () => {
         />
       </section>
       <Separator />
-      <DataTable searchKey="title" columns={Columns} data={data} />
+      <DataTable searchKey="email" columns={Columns} data={users} />
     </>
   );
-};
-
-export default AllUsersPage;
+}
