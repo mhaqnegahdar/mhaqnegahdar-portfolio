@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useTransition } from "react";
 import { cn } from "@/lib/utils";
 import { Bookmark, Heart } from "lucide-react";
 import { useUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
+import { useState } from "react";
 
 interface ActionButtonProps {
   type: "like" | "save";
@@ -19,7 +19,7 @@ export default function ActionButton({
   label,
   initialState,
 }: ActionButtonProps) {
-  const [isActive, setIsActive] = React.useState(initialState);
+  const [isActive, setIsActive] = useState(initialState);
 
   //   const [isPending, startTransition] = useTransition();
 
