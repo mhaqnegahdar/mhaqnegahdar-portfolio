@@ -72,6 +72,17 @@ export default function BlogHeader() {
                 <NavigationMenuContent className="min-w-[200px] divide-y-2 overflow-hidden p-0">
                   {/* Blog Buttons */}
                   <Link
+                    href={`/profile`}
+                    className={cn(
+                      buttonVariants({ variant: "outline" }),
+                      "h-12 w-full justify-start rounded-none border-none",
+                    )}
+                  >
+                    Profile
+                  </Link>
+                  <Separator />
+
+                  <Link
                     href={`/blog/favorites`}
                     className={cn(
                       buttonVariants({ variant: "outline" }),
@@ -92,7 +103,7 @@ export default function BlogHeader() {
                     Bookmarks
                   </Link>
                   <Separator />
-                  <div className="flex w-full ">
+                  <div className="flex w-full">
                     {/* Admin Buttons */}
                     {isAdmin ? (
                       <>

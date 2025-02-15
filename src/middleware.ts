@@ -7,6 +7,7 @@ const isProtectedRoute = createRouteMatcher([
   "/admin(.*)",
   "/blog/bookmarks",
   "/blog/favorites",
+  "/profile",
 ]);
 
 const isAuthRoute = createRouteMatcher(["/sign-in(.*)", "/sign-up(.*)"]);
@@ -14,13 +15,13 @@ const isAuthRoute = createRouteMatcher(["/sign-in(.*)", "/sign-up(.*)"]);
 export default clerkMiddleware(async (auth, req) => {
   // Protected routes
   if (isAuthRoute(req) && (await auth()).userId) {
-    const url = new URL("/", req.url);
+    const url = new URL("/blog", req.url);
     return NextResponse.redirect(url);
   }
 
   // Protected routes
   if (isProtectedRoute(req) && !(await auth()).userId) {
-    const url = new URL("/", req.url);
+    const url = new URL("/blog", req.url);
     return NextResponse.redirect(url);
   }
 
@@ -29,7 +30,7 @@ export default clerkMiddleware(async (auth, req) => {
     isAdminRoute(req) &&
     (await auth()).sessionClaims?.metadata?.role !== "admin"
   ) {
-    const url = new URL("/", req.url);
+    const url = new URL("/blog", req.url);
     return NextResponse.redirect(url);
   }
 });
