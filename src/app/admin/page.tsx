@@ -21,7 +21,7 @@ export default function page() {
           className="w-full sm:w-auto"
         />
       </section>
-      <Separator />
+      <Separator  />
 
       <div className="flex items-center justify-center py-40">
         <div className="flex w-full flex-col items-center justify-center gap-4 md:flex-row">
