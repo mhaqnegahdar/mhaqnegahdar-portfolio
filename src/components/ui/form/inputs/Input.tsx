@@ -10,11 +10,14 @@ import RadioInput from "@/components/ui/form/inputs/RadioInput";
 import ComboboxInput from "@/components/ui/form/inputs/ComboboxInput";
 import DatepickerInput from "@/components/ui/form/inputs/DatePickerInput";
 import CheckboxInput from "@/components/ui/form/inputs/CheckboxInput";
+import { EditorInput } from "@/components/ui/form/inputs/DynamicEditorInput";
+import ImageInput from "@/components/ui/form/inputs/ImageInput";
 
 // Utils
 import { cn } from "@/lib/utils";
+
+//Types
 import { InputProps } from "@/lib/forms";
-import ImageInput from "./ImageInput";
 
 /**
  * Input component
@@ -78,6 +81,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             "combobox",
             "date",
             "image",
+            "editor",
           ].includes(type)
             ? ({ field, form, meta }: FieldProps) => {
                 switch (type) {
@@ -138,6 +142,15 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                         meta={meta}
                         disabled={disabled || isSubmitting}
                         multiple={multiple}
+                      />
+                    );
+                  case "editor":
+                    return (
+                      <EditorInput
+                        field={field}
+                        form={form}
+                        meta={meta}
+                        editable={!disabled && !isSubmitting}
                       />
                     );
                 }

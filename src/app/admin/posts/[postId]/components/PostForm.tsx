@@ -42,29 +42,6 @@ export default function PostForm({ post, categories = [] }: PostFormProps) {
       validation: Yup.string().required("Image is required"),
       inputProps: { type: "image", label: "Image" },
     },
-    status: {
-      initialValue: post?.status || "draft",
-      validation: Yup.string()
-        .oneOf(["draft", "published"])
-        .required("Status is required"),
-      inputProps: {
-        label: "Status",
-        type: "radio",
-        className: "grid-cols-2",
-        data: [
-          { value: "draft", label: "Draft" },
-          { value: "published", label: "Published" },
-        ],
-      },
-    },
-    isFeatured: {
-      initialValue: post?.isFeatured || false,
-      validation: Yup.boolean().required("Is Featured is required"),
-      inputProps: {
-        label: "Is Featured",
-        type: "checkbox",
-      },
-    },
     readTime: {
       initialValue: post?.readTime || "",
       validation: Yup.string().required("Read Time is required"),
@@ -95,10 +72,107 @@ export default function PostForm({ post, categories = [] }: PostFormProps) {
       },
     },
     content: {
-      initialValue: "",
-      validation: Yup.string().required("Content is required"),
-      inputProps: { type: "textarea", label: "Content" },
+      initialValue: [
+        {
+          type: "heading",
+          content: "Heading",
+        },
+        {
+          type: "paragraph",
+          content: "Welcome to this demo!",
+        },
+        {
+          type: "paragraph",
+        },
+        {
+          type: "paragraph",
+          content: [
+            {
+              type: "text",
+              text: "Blocks:",
+              styles: { bold: true },
+            },
+          ],
+        },
+        {
+          type: "paragraph",
+          content: "Paragraph",
+        },
+        {
+          type: "bulletListItem",
+          content: "Bullet List Item",
+        },
+        {
+          type: "numberedListItem",
+          content: "Numbered List Item",
+        },
+        {
+          type: "checkListItem",
+          content: "Check List Item",
+        },
+        {
+          type: "codeBlock",
+          props: { language: "javascript" },
+          content: "console.log('Hello, world!');",
+        },
+        {
+          type: "paragraph",
+        },
+        {
+          type: "paragraph",
+        },
+        {
+          type: "table",
+          content: {
+            type: "tableContent",
+            rows: [
+              {
+                cells: ["Table Cell", "Table Cell", "Table Cell"],
+              },
+              {
+                cells: ["Table Cell", "Table Cell", "Table Cell"],
+              },
+              {
+                cells: ["Table Cell", "Table Cell", "Table Cell"],
+              },
+            ],
+          },
+        },
+      ],
+      validation: Yup.array()
+        .of(Yup.object().required("Content is required"))
+        .min(2, "Please write some proper content")
+        .required("Content is required"),
+      inputProps: { type: "editor", label: "Content" },
     },
+    status: {
+      initialValue: post?.status || "draft",
+      validation: Yup.string()
+        .oneOf(["draft", "published"])
+        .required("Status is required"),
+      inputProps: {
+        label: "Status",
+        type: "radio",
+        className: "grid-cols-2",
+        data: [
+          { value: "draft", label: "Draft" },
+          { value: "published", label: "Published" },
+        ],
+      },
+    },
+    isFeatured: {
+      initialValue: post?.isFeatured || false,
+      validation: Yup.boolean().required("Is Featured is required"),
+      inputProps: {
+        label: "Is Featured",
+        type: "checkbox",
+      },
+    },
+    // content: {
+    //   initialValue: "",
+    //   validation: Yup.string().required("Content is required"),
+    //   inputProps: { type: "textarea", label: "Content" },
+    // },
   });
 
   const onSubmit: FormSubmitType<typeof initialValues> = async (

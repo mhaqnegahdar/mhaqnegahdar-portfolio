@@ -9,12 +9,12 @@ import { FormConfig, FormFieldConfig } from "./formConfig";
 import { FormikValues } from "formik";
 
 export const createFormConfig = <T extends Yup.AnyObject>(
-  fields: FormFieldConfig<T>
+  fields: FormFieldConfig<T>,
 ): FormConfig<T> => {
-  const initialValues = {} as T;
+  const initialValues = {} as T | T[keyof T];
   const validationSchema: Record<
     keyof T,
-    Yup.Schema<T[keyof T]>
+    Yup.Schema<T[keyof T]> | Yup.Schema<object>
   > = {} as Record<keyof T, Yup.Schema<T[keyof T]>>;
 
   for (const key in fields) {
@@ -25,14 +25,14 @@ export const createFormConfig = <T extends Yup.AnyObject>(
   return {
     initialValues,
     validationSchema: Yup.object(
-      validationSchema
+      validationSchema,
     ) as unknown as Yup.ObjectSchema<T>,
     fields,
   };
 };
 
 export const createFormInputs = <T extends Yup.AnyObject>(
-  formFieldsMapping: FormFieldConfig<T>
+  formFieldsMapping: FormFieldConfig<T>,
 ) =>
   Object.entries(formFieldsMapping).map(([name, props]) => {
     const { inputProps } = props;

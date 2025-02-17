@@ -12,6 +12,7 @@ import { HTMLInputTypeAttribute } from "react";
 type CustomInputTypeAttribute =
   | "textarea"
   | "combobox"
+  | "editor"
   | HTMLInputTypeAttribute;
 
 // Inputs
@@ -33,6 +34,11 @@ export interface SelectInputProps extends FieldProps {
   defaultValue: string;
   className?: string;
 }
+
+export interface EditorInputProps extends FieldProps {
+  className?: string;
+  editable?: boolean;
+}
 export interface CheckboxInputProps extends FieldProps {
   defaultValue: string;
   className?: string;
@@ -47,15 +53,15 @@ export interface ImageInputProps extends FieldProps {
 
 export type FormFieldConfig<T> = {
   [K in keyof T]: {
-    initialValue: T[K];
-    validation: Yup.Schema<T[K]>;
+    initialValue: T[K] | Array<object>;
+    validation: Yup.Schema<T[K]> | Yup.Schema<Array<object>> ;
     inputProps: Omit<InputProps, "name">;
   };
 };
 
 export type FormConfig<T extends Yup.AnyObject> = {
-  initialValues: T;
-  validationSchema: Yup.ObjectSchema<T>;
+  initialValues: T | Array<object>;
+  validationSchema: Yup.ObjectSchema<T  > ;
   fields: FormFieldConfig<T>;
 };
 

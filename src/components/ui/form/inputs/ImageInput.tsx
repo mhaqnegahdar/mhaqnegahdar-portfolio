@@ -144,7 +144,7 @@ export default function ImageInput({
         <div className="mb-4 flex flex-wrap items-center gap-4">
           {/* Single Image Show */}
           {multiple === false && getFieldProps(name).value ? (
-            <div className="relative mt-2 flex aspect-video items-center justify-center overflow-hidden rounded-md">
+            <div className="relative mt-2 flex aspect-video w-full items-center justify-center overflow-hidden rounded-md">
               <div className="absolute right-2 top-2 z-10">
                 <Button
                   type="button"
@@ -156,7 +156,7 @@ export default function ImageInput({
                 </Button>
               </div>
               <Image
-                className="object-cover"
+                className="w-full object-cover"
                 alt="Image"
                 path={`${getFieldProps(name).value}`}
                 w={800}
